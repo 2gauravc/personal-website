@@ -272,6 +272,13 @@ input {
   background: rgb(15 118 110);
 }
 
+.agentic-card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
 .content-card,
 .principle-card,
 .download-card,
