@@ -85,4 +85,27 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(activeIndex);
     startRotation();
   });
+
+  const caseSelectors = document.querySelectorAll("[data-case-selector]");
+
+  caseSelectors.forEach((selector) => {
+    const cards = Array.from(selector.querySelectorAll("[data-case-card]"));
+    const panels = Array.from(selector.querySelectorAll("[data-case-panel]"));
+
+    const showCase = (caseId) => {
+      cards.forEach((card) => {
+        const isSelected = card.dataset.caseCard === caseId;
+        card.classList.toggle("is-selected", isSelected);
+        card.setAttribute("aria-pressed", String(isSelected));
+      });
+
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.casePanel !== caseId;
+      });
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => showCase(card.dataset.caseCard));
+    });
+  });
 });
