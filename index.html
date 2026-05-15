@@ -26,62 +26,34 @@
     </header>
 
     <main>
-      <section class="border-b border-slate-200 bg-stone-50">
-        <div class="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-28">
-          <div>
-            <p class="eyebrow"> Agentic / AI -> Process Change -> Org Structure Change</p>
-            <h1 class="mt-5 max-w-4xl text-5xl font-semibold leading-tight tracking-normal text-slate-950 md:text-7xl">
-              Redesign knowledge work in banking.
-            </h1>
-            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              I explore how banks can redesign complex knowledge work, from KYC and onboarding to credit, risk, and client intelligence, using AI, agentic workflows, and better decision flow.
-            </p>
-            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="case-studies/maxit.html" class="button-primary">View Case Studies</a>
-              <a href="downloads/index.html" class="button-secondary">Download Frameworks</a>
-            </div>
-          </div>
-          <div class="system-panel">
-            <div class="panel-header">
-              <span>Operating model</span>
-              <span>Shared context</span>
-            </div>
-            <div class="mt-6 space-y-4">
-              <div class="flow-row">
-                <span>1</span>
-                <div>
-                  <h2>Capture context</h2>
-                  <p>Bring client, product, risk, registry, and document signals into a usable working layer.</p>
-                </div>
-              </div>
-              <div class="flow-row">
-                <span>2</span>
-                <div>
-                  <h2>Reason through decisions</h2>
-                  <p>Use agents to prepare evidence, compare options, and surface missing information.</p>
-                </div>
-              </div>
-              <div class="flow-row">
-                <span>3</span>
-                <div>
-                  <h2>Control the workflow</h2>
-                  <p>Keep humans in review loops with clear audit trails, escalation paths, and accountability.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="section">
         <div class="section-grid">
           <div>
-            <p class="eyebrow">Positioning</p>
-            <h2 class="section-title">Practical AI adoption for complex banking work.</h2>
+            <p class="eyebrow">Reality Check</p>
+            <h2 class="section-title">State of Knowledge Work in Banking</h2>
           </div>
-          <p class="section-copy">
-            The opportunity is not simply faster chat or isolated automation. Banks need systems that improve how teams gather context, interpret evidence, coordinate handoffs, and make governed decisions across onboarding, risk, coverage, product, and operations.
-          </p>
+          <div class="message-carousel" data-carousel>
+            <div class="carousel-track" aria-live="polite">
+              <p class="section-copy carousel-slide is-active" data-carousel-slide>
+                Before diving into agents and copilots, we have to acknowledge the reality of knowledge work in banks. Repetitive low-value work, overloaded teams and people operating under constant stress - just to keep daily operations moving. 
+              </p>
+              <p class="section-copy carousel-slide" data-carousel-slide hidden>
+                Besides Agentic AI, there is so much more to fix: functional silos, fragmented processes, legacy technology, overloaded delivery teams, and evolving people skills. So where do we even begin?
+              </p>
+              <p class="section-copy carousel-slide" data-carousel-slide hidden>
+                Since this moment is about Agentic AI, let us start there. And since transformation ultimately begins with people, let us begin with YOU!
+              </p>
+            </div>
+            <div class="carousel-controls" aria-label="Reality check carousel controls">
+              <button class="carousel-button" type="button" aria-label="Previous message" data-carousel-prev>&lt;</button>
+              <div class="carousel-dots" role="tablist" aria-label="Carousel slides">
+                <button class="carousel-dot is-active" type="button" aria-label="Show message 1" aria-selected="true" data-carousel-dot></button>
+                <button class="carousel-dot" type="button" aria-label="Show message 2" aria-selected="false" data-carousel-dot></button>
+                <button class="carousel-dot" type="button" aria-label="Show message 3" aria-selected="false" data-carousel-dot></button>
+              </div>
+              <button class="carousel-button" type="button" aria-label="Next message" data-carousel-next>&gt;</button>
+            </div>
+          </div>
         </div>
       </section>
 
