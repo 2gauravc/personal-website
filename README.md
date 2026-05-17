@@ -18,3 +18,8 @@ http://localhost:8000
 
 ## Hosting on AWS S3
 
+```
+aws s3 sync . s3://gc-pers-website \
+  --delete \
+  --exclude ".git/*"
+  ```
