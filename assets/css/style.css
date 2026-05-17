@@ -391,6 +391,11 @@ input {
   max-width: 52rem;
 }
 
+.case-study-heading .page-title {
+  font-size: 2rem;
+  line-height: 1.16;
+}
+
 .case-card-carousel {
   display: grid;
   grid-auto-columns: minmax(17rem, 1fr);
@@ -613,6 +618,10 @@ input {
   }
 
   .section-title {
+    font-size: 2.45rem;
+  }
+
+  .case-study-heading .page-title {
     font-size: 2.45rem;
   }
 
