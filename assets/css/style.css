@@ -321,6 +321,23 @@ input {
   gap: 0.75rem;
 }
 
+.download-card-link {
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.download-card-link:hover,
+.download-card-link:focus-visible {
+  border-color: rgb(148 163 184);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.download-card-link:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.35);
+  outline-offset: 3px;
+}
+
 .download-card-label {
   justify-self: start;
   font-size: 0.75rem;
