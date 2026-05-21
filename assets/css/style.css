@@ -594,6 +594,103 @@ input {
   color: rgb(71 85 105);
 }
 
+.about-section-grid {
+  display: grid;
+  max-width: 72rem;
+  gap: 2.5rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-section-copy {
+  align-self: center;
+}
+
+.about-profile-media {
+  align-self: center;
+}
+
+.about-profile-photo {
+  width: 100%;
+  max-width: 24rem;
+  aspect-ratio: 1;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.5rem;
+  object-fit: cover;
+  object-position: center 18%;
+  background: rgb(255 255 255);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+}
+
+.about-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.certification-grid,
+.book-grid,
+.project-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.certification-grid {
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.certification-card,
+.book-card {
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.5rem;
+  background: rgb(255 255 255);
+}
+
+.certification-card {
+  display: grid;
+  min-height: 22rem;
+  justify-items: center;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.25rem 1rem;
+}
+
+.certification-card h3,
+.book-card h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: rgb(15 23 42);
+  text-align: center;
+}
+
+.book-grid {
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.book-card {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: 1rem;
+}
+
+.book-card img {
+  width: 100%;
+  max-height: 22rem;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+}
+
+.project-grid {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.project-card {
+  min-height: 14rem;
+}
+
 .principle-card,
 .download-card,
 .signup-panel {
@@ -684,6 +781,11 @@ input {
 
 @media (min-width: 768px) {
   .section-grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+  }
+
+  .about-section-grid {
     grid-template-columns: 0.85fr 1.15fr;
     align-items: start;
   }

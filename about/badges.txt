@@ -1,0 +1,17 @@
+AWS Academy Educator 
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5280b139-4294-44d3-89be-2de4d9bffac5" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+AWS Certified Cloud Practitioner 
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f97239a5-4664-4fa6-9490-5d1505aa0636" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+AWS Certified Data Engineer Associate 
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="c8bec000-67c1-4738-81fb-4777720911d2" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+AWS Certified Developer Associate 
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="c8bec000-67c1-4738-81fb-4777720911d2" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+AWS Certified Machine Learning Speciality 
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="502ab7f7-4b77-483f-bbdf-620caa70e9c6" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+Solutions Architect Associate 
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="da954d01-e42f-44bb-ba65-3ccea6e14cdf" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
