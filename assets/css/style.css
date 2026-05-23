@@ -745,6 +745,29 @@ input {
   margin-top: 0.5rem;
 }
 
+.case-template-sidebar {
+  gap: 0.55rem;
+}
+
+.case-template-sidebar .case-sidebar-section {
+  margin-top: 0.45rem;
+  color: rgb(15 23 42);
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.case-template-sidebar .case-sidebar-section:first-child {
+  margin-top: 0;
+}
+
+.case-template-sidebar .case-sidebar-subitem {
+  padding-left: 1rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: rgb(100 116 139);
+}
+
 .signup-panel {
   align-self: start;
 }
