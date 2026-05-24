@@ -889,4 +889,10 @@ input {
   .page-title {
     font-size: 2.5rem;
   }
+
+  .case-study-heading .page-title,
+  .case-study-page-title {
+    font-size: 2rem;
+    line-height: 1.16;
+  }
 }
