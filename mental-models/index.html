@@ -1,66 +1,81 @@
-## Mental Models
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mental Models | Banking AI Systems</title>
+    <meta name="description" content="Mental models for understanding agentic shifts and the actions banks can take to redesign knowledge work.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body class="bg-stone-50 text-slate-950 antialiased">
+    <header class="site-header">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5" aria-label="Primary navigation">
+        <a href="../index.html" class="text-sm font-semibold tracking-wide text-slate-950">Transforming Knowledge Work in Banking</a>
+        <button class="nav-toggle md:hidden" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu hidden items-center gap-6 text-sm text-slate-600 md:flex" data-nav-menu>
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../case-studies/index.html" class="nav-link">Case Studies</a>
+          <a href="index.html" class="nav-link active">Mental Models</a>
+          <a href="../index.html#readiness" class="nav-link">Readiness</a>
+          <a href="../index.html#tools" class="nav-link">Tools</a>
+          <a href="../downloads/index.html" class="nav-link">Downloads</a>
+          <a href="../about/" class="nav-link">About</a>
+        </div>
+      </nav>
+    </header>
 
-How should organizations think about Agentic AI beyond the hype?
+    <main>
+      <section class="page-hero mental-models-hero">
+        <div class="mx-auto max-w-6xl px-6">
+          <p class="eyebrow">Mental models</p>
+          <h1 class="page-title">From external shifts to concrete actions.</h1>
+          <p class="page-intro">Agentic AI is not just another tooling wave. The useful question for banks is how the world is shifting, and what practical operating model, technology, delivery, and people moves can create capacity instead of more complexity.</p>
+          <div class="mental-model-jump-links" aria-label="Mental model sections">
+            <a href="#shifts">Shifts</a>
+            <a href="#actions">Actions</a>
+          </div>
+        </div>
+      </section>
 
-This section explores the mental models, trade-offs, and foundational ideas behind intelligent systems, banking transformation, and the future of knowledge work.
+      <section class="mental-model-band mental-model-band-shifts" id="shifts">
+        <div class="mental-model-layout">
+          <div class="mental-model-copy">
+            <p class="eyebrow">01 / Shifts</p>
+            <h2>Where the pressure is coming from.</h2>
+            <p>Start with the forces already visible: resource crunch, operational toil, agentic technology, and the pull toward work happening closer to the people who understand it.</p>
+            <p>The leaf nodes in the diagram are the things to inspect. They are the signals that explain why old delivery models feel slower than the world around them.</p>
+          </div>
 
----
+          <div class="diagram-shell">
+            <iframe src="shifts.html" title="Shifts diagram showing where the world is moving" loading="lazy"></iframe>
+          </div>
+        </div>
+      </section>
 
-## Flexibility vs Structure
+      <section class="mental-model-band mental-model-band-actions" id="actions">
+        <div class="mental-model-layout mental-model-layout-reversed">
+          <div class="mental-model-copy">
+            <p class="eyebrow">02 / Actions</p>
+            <h2>What banks can do about it.</h2>
+            <p>The response is not a single AI initiative. It is a coordinated set of moves across work design, technology foundations, delivery capability, and people roles.</p>
+            <p>The action map turns the shift into a practical agenda: improve decision flow, modernize foundations, reshape delivery, and prepare domain practitioners, platform builders, and digital guardians for new responsibilities.</p>
+          </div>
 
-One of the core trade-offs in Agentic AI is flexibility versus structure.
+          <div class="diagram-shell diagram-shell-large">
+            <iframe src="actions.html" title="Actions diagram showing what banks need to do" loading="lazy"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
 
-Traditional enterprise systems optimized for predefined workflows, control, and consistency. Agentic systems introduce more adaptive and open-ended interactions — but organizations still need governance, auditability, and operational discipline.
-
-The future may not be fully rigid or fully autonomous systems, but governed flexibility: structured foundations with more adaptive execution closer to the work.
-
----
-
-## What is an Agent?
-
-Agents bring together ideas from several earlier technology eras — APIs, workflow orchestration, microservices, copilots, automation, and reasoning systems.
-
-What changes now is that systems can increasingly interpret intent, coordinate tools, preserve context, and dynamically decide how work should progress.
-
-This changes not just software, but how organizations think about workflows, decision-making, and execution.
-
----
-
-## Foundations Matter
-
-Agentic systems do not remove the need for strong foundations.
-
-Organizations still require strong data foundations, cloud infrastructure, APIs, microservices, DevOps practices, observability, security, governance, and delivery capability.
-
-Even if Agentic AI becomes transformative, overloaded delivery teams, fragmented systems, and organizational constraints remain practical realities that must be addressed.
-
----
-
-## Capacity Creation
-
-Agentic systems may fundamentally change how organizational capacity is created.
-
-Traditionally, change depended heavily on centralized technology teams and long delivery cycles. As reusable AI capabilities and platforms become more accessible, domain users can increasingly move closer to the work and participate directly in building workflows and solutions.
-
-This is not only a technology shift. It is an operating model shift.
-
----
-
-## Shift Left — Users as Builders
-
-One of the most important changes may be the movement of users from workflow participants to workflow builders.
-
-As platforms expose reusable capabilities — AI agents, orchestration tools, APIs, and shared context layers — domain experts can increasingly compose and adapt workflows themselves within governed boundaries.
-
-The barriers between ideas and execution are reducing rapidly.
-
----
-
-## Decision Flow
-
-Many enterprise problems are ultimately problems of decision flow.
-
-Organizations often remain highly active — meetings, escalations, approvals, coordination, and reporting — yet meaningful movement remains slow because context is fragmented, reasoning is repeated, and decisions do not flow effectively across teams and systems.
-
-Improving knowledge work is not simply about faster automation. It is about reducing friction around decisions.
-
+    <footer class="site-footer">
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+        <p>&copy; 2026 KnowledgeWork4Banking. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
