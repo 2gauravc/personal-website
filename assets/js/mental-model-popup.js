@@ -221,7 +221,7 @@
     href: svg.dataset.popupWhyHref || "find-out-why.html",
     target: "_top",
     tabindex: "0",
-    "aria-label": "Find out why"
+    "aria-label": "Find out more"
   });
   const whyRect = createElement("rect", {
     x: cardX + cardWidth - 188,
@@ -234,7 +234,7 @@
     class: "popup-why-label",
     x: cardX + cardWidth - 164,
     y: 0
-  }, "Find out why");
+  }, "Find out more");
   const whyArrow = createElement("path", {
     class: "popup-why-arrow",
     d: "M0,0 L16,0 M10,-6 L16,0 L10,6",
