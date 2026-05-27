@@ -58,6 +58,11 @@
       line-height: 1.5;
     }
 
+    .popup-footer-divider {
+      stroke: #e2e8f0;
+      stroke-width: 1;
+    }
+
     .popup-close {
       cursor: pointer;
     }
@@ -76,6 +81,63 @@
 
     .popup-close:focus {
       outline: none;
+    }
+
+    .popup-like,
+    .popup-why-link {
+      cursor: pointer;
+    }
+
+    .popup-like rect,
+    .popup-why-link rect {
+      fill: #f8fafc;
+      stroke: #cbd5e1;
+      transition: fill 160ms ease, stroke 160ms ease;
+    }
+
+    .popup-like path {
+      fill: none;
+      stroke: #64748b;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+      transition: fill 160ms ease, stroke 160ms ease;
+    }
+
+    .popup-like:hover rect,
+    .popup-like:focus rect,
+    .popup-like.is-liked rect,
+    .popup-why-link:hover rect,
+    .popup-why-link:focus rect {
+      fill: #f0fdfa;
+      stroke: #0f766e;
+    }
+
+    .popup-like:hover path,
+    .popup-like:focus path,
+    .popup-like.is-liked path {
+      fill: #14b8a6;
+      stroke: #0f766e;
+    }
+
+    .popup-like:focus,
+    .popup-why-link:focus {
+      outline: none;
+    }
+
+    .popup-like-label,
+    .popup-why-label {
+      fill: #334155;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .popup-why-arrow {
+      fill: none;
+      stroke: #0f766e;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
     }
 
     .model-popup[hidden] {
@@ -122,6 +184,69 @@
     x: svg.dataset.popupCopyX,
     y: svg.dataset.popupCopyY
   });
+  const cardX = Number(svg.dataset.popupCardX);
+  const cardY = Number(svg.dataset.popupCardY);
+  const cardWidth = Number(svg.dataset.popupCardWidth);
+  const minCardHeight = Number(svg.dataset.popupCardHeight);
+  const copyY = Number(svg.dataset.popupCopyY);
+  const footerGap = Number(svg.dataset.popupFooterGap || 34);
+  const footerHeight = Number(svg.dataset.popupFooterHeight || 58);
+  const buttonHeight = 36;
+  const buttonInset = 40;
+  const like = createElement("g", {
+    class: "popup-like",
+    role: "button",
+    tabindex: "0",
+    "aria-label": "Like this insight",
+    "aria-pressed": "false"
+  });
+  const likeRect = createElement("rect", {
+    x: cardX + 40,
+    y: 0,
+    width: 96,
+    height: buttonHeight,
+    rx: 10
+  });
+  const likeIcon = createElement("path", {
+    d: "M0,-4 C0,-10 9,-10 9,-3 C9,4 0,9 0,9 C0,9 -9,4 -9,-3 C-9,-10 0,-10 0,-4 Z",
+    transform: `translate(${cardX + 60} 0)`
+  });
+  const likeLabel = createElement("text", {
+    class: "popup-like-label",
+    x: cardX + 78,
+    y: 0
+  }, "Like");
+  const whyLink = createElement("a", {
+    class: "popup-why-link",
+    href: svg.dataset.popupWhyHref || "find-out-why.html",
+    target: "_top",
+    tabindex: "0",
+    "aria-label": "Find out why"
+  });
+  const whyRect = createElement("rect", {
+    x: cardX + cardWidth - 188,
+    y: 0,
+    width: 148,
+    height: buttonHeight,
+    rx: 18
+  });
+  const whyLabel = createElement("text", {
+    class: "popup-why-label",
+    x: cardX + cardWidth - 164,
+    y: 0
+  }, "Find out why");
+  const whyArrow = createElement("path", {
+    class: "popup-why-arrow",
+    d: "M0,0 L16,0 M10,-6 L16,0 L10,6",
+    transform: `translate(${cardX + cardWidth - 78} 0)`
+  });
+  const footerDivider = createElement("line", {
+    class: "popup-footer-divider",
+    x1: cardX + buttonInset,
+    y1: 0,
+    x2: cardX + cardWidth - buttonInset,
+    y2: 0
+  });
   const close = createElement("g", {
     class: "popup-close",
     role: "button",
@@ -144,7 +269,9 @@
   }, "x");
 
   close.append(closeRect, closeText);
-  popup.append(backdrop, card, kicker, title, copy, close);
+  like.append(likeRect, likeIcon, likeLabel);
+  whyLink.append(whyRect, whyLabel, whyArrow);
+  popup.append(backdrop, card, kicker, title, copy, footerDivider, like, whyLink, close);
   svg.append(popup);
 
   const wrapText = (text) => {
@@ -173,7 +300,9 @@
   const setCopy = (text) => {
     copy.textContent = "";
 
-    wrapText(text).forEach((line, index, lines) => {
+    const lines = wrapText(text);
+
+    lines.forEach((line, index) => {
       const tspan = createElement("tspan", {
         x: svg.dataset.popupCopyX,
         dy: index === 0 ? 0 : lineHeight
@@ -181,13 +310,44 @@
 
       copy.appendChild(tspan);
     });
+
+    return lines.length;
+  };
+
+  const setElementAttributes = (element, attributes) => {
+    Object.entries(attributes).forEach(([name, value]) => {
+      element.setAttribute(name, String(value));
+    });
+  };
+
+  const layoutFooter = (lineCount) => {
+    const copyLastBaseline = copyY + Math.max(lineCount - 1, 0) * lineHeight;
+    const footerY = Math.max(
+      cardY + minCardHeight - footerHeight,
+      copyLastBaseline + footerGap
+    );
+    const cardHeight = Math.max(minCardHeight, footerY + footerHeight - cardY);
+    const buttonY = footerY + 14;
+    const buttonCenterY = buttonY + buttonHeight / 2;
+
+    card.setAttribute("height", String(cardHeight));
+    setElementAttributes(footerDivider, {
+      y1: footerY,
+      y2: footerY
+    });
+    setElementAttributes(likeRect, { y: buttonY });
+    likeIcon.setAttribute("transform", `translate(${cardX + 60} ${buttonCenterY})`);
+    likeLabel.setAttribute("y", String(buttonY + 23));
+    setElementAttributes(whyRect, { y: buttonY });
+    whyLabel.setAttribute("y", String(buttonY + 23));
+    whyArrow.setAttribute("transform", `translate(${cardX + cardWidth - 78} ${buttonCenterY})`);
   };
 
   const openPopup = (node) => {
     activeNode = node;
     kicker.textContent = node.dataset.popupKicker || svg.dataset.popupKicker || "";
     title.textContent = node.dataset.popupTitle || "";
-    setCopy(node.dataset.popupText || "");
+    layoutFooter(setCopy(node.dataset.popupText || ""));
     popup.removeAttribute("hidden");
     close.focus();
   };
@@ -199,6 +359,11 @@
       activeNode.focus();
       activeNode = null;
     }
+  };
+
+  const toggleLike = () => {
+    const isLiked = like.classList.toggle("is-liked");
+    like.setAttribute("aria-pressed", String(isLiked));
   };
 
   nodes.forEach((node) => {
@@ -213,6 +378,15 @@
 
   [close, backdrop].forEach((element) => {
     element.addEventListener("click", closePopup);
+  });
+
+  like.addEventListener("click", toggleLike);
+
+  like.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleLike();
+    }
   });
 
   close.addEventListener("keydown", (event) => {
