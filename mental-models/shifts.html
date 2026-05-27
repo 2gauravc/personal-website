@@ -1,5 +1,5 @@
 <!-- AGENTIC SHIFTS SVG -->
-<svg viewBox="0 0 900 640" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" class="w-full h-auto" role="img" aria-label="Shifts - where the world is moving">
+<svg viewBox="0 0 900 640" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" class="w-full h-auto" role="img" aria-label="Shifts - where the world is moving" data-model-popup data-popup-kicker="Current Organizational Reality" data-popup-card-x="220" data-popup-card-y="195" data-popup-card-width="460" data-popup-card-height="250" data-popup-kicker-x="260" data-popup-kicker-y="244" data-popup-title-x="260" data-popup-title-y="280" data-popup-copy-x="260" data-popup-copy-y="322" data-popup-close-x="622" data-popup-close-y="219" data-popup-copy-max-chars="54">
   <style>
     .model-node-clickable {
       cursor: pointer;
@@ -20,59 +20,6 @@
       outline: none;
     }
 
-    .popup-backdrop {
-      fill: rgba(15, 23, 42, 0.42);
-    }
-
-    .popup-card {
-      fill: #ffffff;
-      stroke: #cbd5e1;
-      filter: drop-shadow(0 24px 45px rgba(15, 23, 42, 0.22));
-    }
-
-    .popup-kicker {
-      fill: #0f766e;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .popup-title {
-      fill: #0f172a;
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .popup-copy {
-      fill: #475569;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .popup-close {
-      cursor: pointer;
-    }
-
-    .popup-close rect {
-      fill: #f8fafc;
-      stroke: #cbd5e1;
-      transition: fill 160ms ease, stroke 160ms ease;
-    }
-
-    .popup-close:hover rect,
-    .popup-close:focus rect {
-      fill: #f0fdfa;
-      stroke: #0f766e;
-    }
-
-    .popup-close:focus {
-      outline: none;
-    }
-
-    .model-popup[hidden] {
-      display: none;
-    }
   </style>
 
   <text x="40" y="45" font-size="28" font-weight="700">Shifts</text>
@@ -245,108 +192,5 @@
     Flatter Structures
   </text>
 
-  <g class="model-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" hidden>
-    <rect class="popup-backdrop" x="0" y="0" width="900" height="640"/>
-    <rect class="popup-card" x="220" y="195" width="460" height="250" rx="16"/>
-    <text class="popup-kicker" x="260" y="244">Current Organizational Reality</text>
-    <text class="popup-title" id="popup-title" x="260" y="280"></text>
-    <text class="popup-copy" x="260" y="322"></text>
-    <g class="popup-close" role="button" tabindex="0" aria-label="Close pop-up">
-      <rect x="622" y="219" width="32" height="32" rx="8"/>
-      <text x="638" y="241" text-anchor="middle" font-size="20" fill="#334155">x</text>
-    </g>
-  </g>
-
-  <script><![CDATA[
-    (() => {
-      const popup = document.querySelector(".model-popup");
-      const title = popup?.querySelector(".popup-title");
-      const copy = popup?.querySelector(".popup-copy");
-      const close = popup?.querySelector(".popup-close");
-      const backdrop = popup?.querySelector(".popup-backdrop");
-      const lineHeight = 24;
-      let activeNode = null;
-
-      const wrapText = (text, maxChars = 54) => {
-        const words = text.split(" ");
-        const lines = [];
-        let line = "";
-
-        words.forEach((word) => {
-          const nextLine = line ? `${line} ${word}` : word;
-
-          if (nextLine.length > maxChars && line) {
-            lines.push(line);
-            line = word;
-          } else {
-            line = nextLine;
-          }
-        });
-
-        if (line) {
-          lines.push(line);
-        }
-
-        return lines;
-      };
-
-      const setCopy = (text) => {
-        copy.textContent = "";
-
-        const lines = wrapText(text);
-
-        lines.forEach((line, index) => {
-          const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-          tspan.setAttribute("x", "260");
-          tspan.setAttribute("dy", index === 0 ? "0" : String(lineHeight));
-          tspan.textContent = index < lines.length - 1 ? `${line} ` : line;
-          copy.appendChild(tspan);
-        });
-      };
-
-      const openPopup = (node) => {
-        activeNode = node;
-        title.textContent = node.dataset.popupTitle;
-        setCopy(node.dataset.popupText);
-        popup.removeAttribute("hidden");
-        close.focus();
-      };
-
-      const closePopup = () => {
-        popup.setAttribute("hidden", "");
-
-        if (activeNode) {
-          activeNode.focus();
-          activeNode = null;
-        }
-      };
-
-      document.querySelectorAll(".model-node-clickable").forEach((node) => {
-        node.addEventListener("click", () => openPopup(node));
-        node.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openPopup(node);
-          }
-        });
-      });
-
-      [close, backdrop].forEach((element) => {
-        element?.addEventListener("click", closePopup);
-      });
-
-      close?.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          closePopup();
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && !popup.hasAttribute("hidden")) {
-          closePopup();
-        }
-      });
-    })();
-  ]]></script>
 </svg>
+<script src="../assets/js/mental-model-popup.js"></script>

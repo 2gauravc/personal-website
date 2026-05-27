@@ -21,5 +21,7 @@ http://localhost:8000
 ```
 aws s3 sync . s3://gc-pers-website \
   --delete \
-  --exclude ".git/*"
+  --exclude ".git/*" \
+  --exclude "*.json" \
+  --exclude "node_modules/*"
   ```
