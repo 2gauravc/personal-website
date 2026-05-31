@@ -741,6 +741,27 @@ input {
   margin-top: 1.75rem;
 }
 
+.about-intro {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-resource-grid,
+.about-stack-section {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-resource-grid {
+  margin-top: 3rem;
+}
+
+.about-stack-section {
+  display: grid;
+  gap: 2.5rem;
+}
+
 .certification-grid,
 .book-grid,
 .project-grid {
@@ -749,7 +770,7 @@ input {
 }
 
 .certification-grid {
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
 }
 
 .certification-card,
@@ -761,7 +782,7 @@ input {
 
 .certification-card {
   display: grid;
-  min-height: 22rem;
+  min-height: 18rem;
   justify-items: center;
   align-content: start;
   gap: 1rem;
@@ -778,19 +799,21 @@ input {
 }
 
 .book-grid {
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
 }
 
 .book-card {
   display: grid;
   gap: 1rem;
+  justify-items: center;
   align-content: start;
   padding: 1rem;
 }
 
 .book-card img {
   width: 100%;
-  max-height: 22rem;
+  max-width: 12rem;
+  max-height: 18rem;
   aspect-ratio: 2 / 3;
   object-fit: contain;
 }
@@ -923,6 +946,12 @@ input {
   .about-section-grid {
     grid-template-columns: 0.85fr 1.15fr;
     align-items: start;
+  }
+
+  .certification-grid,
+  .book-grid,
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .mental-model-layout {
