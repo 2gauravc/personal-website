@@ -108,4 +108,80 @@ document.addEventListener("DOMContentLoaded", () => {
       card.addEventListener("click", () => showCase(card.dataset.caseCard));
     });
   });
+
+  const mentalModelCards = document.querySelectorAll("[data-mental-model-card]");
+
+  mentalModelCards.forEach((card) => {
+    const toggle = card.querySelector("[data-mental-model-toggle]");
+    const content = card.querySelector(".mental-model-parent-content");
+    const likeButton = card.querySelector("[data-mental-model-like]");
+
+    if (toggle && content) {
+      toggle.addEventListener("click", () => {
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!isExpanded));
+        content.hidden = isExpanded;
+        card.classList.toggle("is-expanded", !isExpanded);
+      });
+    }
+
+    if (likeButton) {
+      likeButton.addEventListener("click", () => {
+        const isLiked = likeButton.getAttribute("aria-pressed") === "true";
+        const label = likeButton.querySelector("[data-like-label]");
+
+        likeButton.setAttribute("aria-pressed", String(!isLiked));
+        likeButton.classList.toggle("is-liked", !isLiked);
+
+        if (label) {
+          label.textContent = isLiked ? "Like" : "Liked";
+        }
+      });
+    }
+  });
+
+  const mentalModelModal = document.querySelector("[data-mental-model-modal]");
+
+  if (mentalModelModal) {
+    const modalTitle = mentalModelModal.querySelector("[data-mental-model-modal-title]");
+    const modalCopy = mentalModelModal.querySelector("[data-mental-model-modal-copy]");
+    const modalCloseButtons = mentalModelModal.querySelectorAll("[data-mental-model-modal-close]");
+    let modalTrigger;
+
+    const closeModal = () => {
+      mentalModelModal.hidden = true;
+      document.body.classList.remove("has-open-modal");
+
+      if (modalTrigger) {
+        modalTrigger.focus();
+      }
+    };
+
+    document.querySelectorAll("[data-mental-model-read-more]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const childCard = button.closest(".mental-model-child-card");
+
+        if (!childCard || !modalTitle || !modalCopy) {
+          return;
+        }
+
+        modalTrigger = button;
+        modalTitle.textContent = childCard.querySelector("h3")?.textContent || "";
+        modalCopy.textContent = childCard.querySelector("p")?.textContent || "";
+        mentalModelModal.hidden = false;
+        document.body.classList.add("has-open-modal");
+        mentalModelModal.querySelector(".mental-model-modal-close")?.focus();
+      });
+    });
+
+    modalCloseButtons.forEach((button) => {
+      button.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !mentalModelModal.hidden) {
+        closeModal();
+      }
+    });
+  }
 });
