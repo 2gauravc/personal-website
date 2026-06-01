@@ -145,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (mentalModelModal) {
     const modalTitle = mentalModelModal.querySelector("[data-mental-model-modal-title]");
     const modalCopy = mentalModelModal.querySelector("[data-mental-model-modal-copy]");
+    const modalKicker = mentalModelModal.querySelector("[data-mental-model-modal-kicker]");
     const modalCloseButtons = mentalModelModal.querySelectorAll("[data-mental-model-modal-close]");
     let modalTrigger;
 
@@ -166,6 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         modalTrigger = button;
+        const parentTitle = childCard.closest("[data-mental-model-card]")?.querySelector(".mental-model-parent-toggle strong");
+
+        if (modalKicker) {
+          modalKicker.textContent = parentTitle?.textContent || "";
+        }
+
         modalTitle.textContent = childCard.querySelector("h3")?.textContent || "";
         modalCopy.textContent = childCard.querySelector("p")?.textContent || "";
         mentalModelModal.hidden = false;
