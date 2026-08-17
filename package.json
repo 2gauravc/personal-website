@@ -1,0 +1,24 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "Open `index.html` directly in a browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2gauravc/personal-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/2gauravc/personal-website/issues"
+  },
+  "homepage": "https://github.com/2gauravc/personal-website#readme",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}
